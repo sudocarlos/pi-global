@@ -10,11 +10,28 @@ Format: `<type>[scope]: <description>` in imperative mood.
 - **Types**: `feat`, `fix`, `refactor`, `perf`, `test`, `docs`, `style`, `build`, `ci`, `chore`
 - **Scope**: lowercase module or directory name; omit if app-wide
 - **Header**: max 50 chars, no period, focus on why not how
-- **Body**: wrap at 72 chars, explain motivation; omit if the header suffices
+- **Body**: one sentence explaining the motivation, then a bulleted summary of the change (one bullet per logical sub-change, up to 5), each wrapped at 72 chars; omit the whole body if the header suffices
 - **Breaking**: append `!` after the type and add a `BREAKING CHANGE:` footer
 - **Atomic**: one logical change per commit; squash fixups with `git rebase -i` before opening a PR
 
 Every commit must build and pass tests.
+
+## Regular commit body
+
+Single motivation sentence, then a bulleted summary:
+
+```
+feat(webui): configurable per-relay icon
+
+Add a user-configurable icon to each relay for visual identification in the
+dashboard.
+
+- add IconURL to ServeRelay with ValidateIconURL scheme allow-list + data cap
+- plumb icon_url through HTTPS multipart and TCP/funnel JSON handlers (400 on bad)
+- add RelayIcon component: <img> with fallback glyph + corner status dot in cards
+- modal icon field with preview, favicon auto-suggest on blur, Use/Clear controls
+- cover with Go unit/handler tests, pytest round-trip, openapi.yaml + CHANGELOG
+```
 
 ## Squash merges
 
