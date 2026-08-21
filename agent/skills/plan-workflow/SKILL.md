@@ -47,6 +47,16 @@ After the push succeeds, follow `skills/code-review` to review the full diff and
 
 Report the implementation summary and review outcome to the user only after the push succeeds.
 
-## Step 5. Merge
+## Step 5. Wait for checks
+
+Before requesting merge approval, wait for CI to finish and pass:
+
+```bash
+gh pr checks <ID> --watch
+```
+
+If a check fails, fix it with a new commit, push, and re-run `gh pr checks <ID> --watch`.
+
+## Step 6. Merge
 
 Requires explicit user approval. Follow `skills/conventional-commits` for the squash subject and body.
