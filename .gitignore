@@ -1,8 +1,9 @@
-# Ignore everything by default; track only agent instructions and skills.
+# Ignore everything by default; track only agent instructions, extensions, and skills.
 # No user preferences, secrets, session history, binaries, or vendored deps.
 /*
 !.gitignore
 !/agent/
 /agent/*
 !/agent/AGENTS.md
+!/agent/extensions/
 !/agent/skills/
